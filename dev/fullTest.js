@@ -39,6 +39,8 @@ async function executeOperations() {
     )
       .then((data) => console.log(data))
       .catch((error) => console.error(error));
+
+      
     // Wait for 1 second
     await wait(1000);
 

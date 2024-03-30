@@ -1,9 +1,8 @@
 const http = require('http');
-const querystring = require('querystring');
 
 function createPost(title, description) {
   return new Promise((resolve, reject) => {
-    const postData = querystring.stringify({
+    const postData = JSON.stringify({
       title: title,
       description: description
     });
@@ -14,7 +13,7 @@ function createPost(title, description) {
       path: '/posts',
       method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         'Content-Length': Buffer.byteLength(postData)
       }
     };
