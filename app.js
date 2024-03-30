@@ -26,6 +26,7 @@ app.get('/posts', (req, res) => {
 // POST /posts creates a new post in the database.
 app.post('/posts', (req, res) => {
   const { title, description } = req.body;
+  console.log(title + " is the title to be added");
 
   if (!title || !description) {
     res.status(400).send('All fields (title, description) are required.');
@@ -54,6 +55,7 @@ app.post('/posts', (req, res) => {
 // Delete /post deletes a post from the database.
 app.delete('/posts', (req, res) => {
     const { title } = req.body;
+    console.log(title + " is the title to be purged");
   
     if (!title) {
       res.status(400).send('Title is required.');

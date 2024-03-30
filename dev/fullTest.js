@@ -7,6 +7,14 @@ const createPost = require("./createPost");
 // Import the deletePost function from deletePost.js
 const deletePost = require("./deletePost");
 
+// Import the getPost function from getPost.js
+const getPosts = require("./getPosts");
+
+// Define a function to wait for a specified amount of time
+function wait(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 // Define an async function to execute the operations
 async function executeOperations() {
   try {
@@ -14,7 +22,15 @@ async function executeOperations() {
     // Call the ping_test function and wait for it to complete
     await ping_test();
 
-    console.log("Ping test passed. Creating a post");
+    // Wait for 1 second
+    await wait(1000);
+
+    console.log("Ping test passed. Getting all posts");
+
+    await wait(1000);
+    getPosts().then((data) => {
+      console.log(data);
+    });
 
     // Call the createPost function and wait for it to complete
     await createPost(
@@ -22,10 +38,16 @@ async function executeOperations() {
       "This post is created from the dev script createPost!"
     );
 
+    // Wait for 1 second
+    await wait(1000);
+
     console.log("Post created. Deleting the post...");
 
     // Call the deletePost function and wait for it to complete
     await deletePost("WoW I created a Post!");
+
+    // Wait for 1 second
+    await wait(1000);
 
     console.log("Post deleted successfully.");
   } catch (error) {

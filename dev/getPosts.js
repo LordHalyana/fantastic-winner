@@ -1,20 +1,30 @@
 const http = require('http');
 
-const options = {
-  hostname: '172.234.115.144',
-  port: 3000,
-  path: '/posts',
-  method: 'GET'
-};
+function getPosts() {
+  return new Promise((resolve, reject) => {
+    const options = {
+      hostname: '172.234.115.144',
+      port: 3000,
+      path: '/posts',
+      method: 'GET'
+    };
 
-const req = http.request(options, res => {
-  res.on('data', d => {
-    process.stdout.write(d);
+    const req = http.request(options, res => {
+      let data = '';
+      res.on('data', d => {
+        data += d;
+      });
+      res.on('end', () => {
+        resolve(data);
+      });
+    });
+
+    req.on('error', error => {
+      reject(error);
+    });
+
+    req.end();
   });
-});
+}
 
-req.on('error', error => {
-  console.error(error);
-});
-
-req.end();
+module.exports = getPosts;
