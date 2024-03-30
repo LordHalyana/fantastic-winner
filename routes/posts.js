@@ -3,7 +3,7 @@ const router = express.Router();
 const fs = require("fs");
 
 // GET /posts reads the database end replies with all the posts in the database.
-router.get("/posts", (req, res) => {
+router.get("/", (req, res) => {
   fs.readFile("./data/posts.json", "utf8", (err, data) => {
     if (err) {
       console.log(err);
@@ -15,7 +15,7 @@ router.get("/posts", (req, res) => {
 });
 
 // POST /posts creates a new post in the database.
-router.post("/posts", (req, res) => {
+router.post("/", (req, res) => {
   const { title, description } = req.body;
   console.log(req.body);
   console.log(title + " is the title to be added");
@@ -51,7 +51,7 @@ router.post("/posts", (req, res) => {
 });
 
 // Delete /post deletes a post from the database.
-router.delete("/posts", (req, res) => {
+router.delete("/", (req, res) => {
   const { title } = req.body;
   console.log(title + " is the title to be purged");
 
