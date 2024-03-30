@@ -4,6 +4,11 @@ const port = 3000;
 const posts = require('./routes/posts'); // import the posts router
 
 
+// Set the view engine to ejs
+app.set('view engine', 'ejs');
+
+// Set the views directory
+app.set('views', path.join(__dirname, 'views'));
 
 
 //middleware
@@ -17,8 +22,12 @@ app.use('/posts', posts);
 
 
 
-
 app.get('/', (req, res) => {
+    res.render('index');
+  });
+
+
+app.get('/test', (req, res) => {
   res.send('How you find this?');
 });
 

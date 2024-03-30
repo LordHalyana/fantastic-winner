@@ -4,7 +4,7 @@ function ping_test() {
   const options = {
     hostname: '172.234.115.144',
     port: 3000,
-    path: '/',
+    path: '/test',
     method: 'GET'
   };
 
