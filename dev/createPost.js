@@ -36,10 +36,5 @@ function createPost(title, description, callback) {
   req.end();
 }
 
-createPost('WoW I created a Post!', 'This post is created from the dev script createPost!', (error, data) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log(data);
-  }
-});
+
+module.exports = createPost;

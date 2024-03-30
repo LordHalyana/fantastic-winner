@@ -1,28 +1,28 @@
-const http = require('http');
+const http = require("http");
 
 function deletePost(title) {
   const postData = JSON.stringify({
-    title: title
+    title: title,
   });
 
   const options = {
-    hostname: '172.234.115.144',
+    hostname: "172.234.115.144",
     port: 3000,
-    path: '/posts',
-    method: 'DELETE',
+    path: "/posts",
+    method: "DELETE",
     headers: {
-      'Content-Type': 'application/json',
-      'Content-Length': postData.length
-    }
+      "Content-Type": "application/json",
+      "Content-Length": postData.length,
+    },
   };
 
-  const req = http.request(options, res => {
-    res.on('data', d => {
+  const req = http.request(options, (res) => {
+    res.on("data", (d) => {
       process.stdout.write(d);
     });
   });
 
-  req.on('error', error => {
+  req.on("error", (error) => {
     console.error(error);
   });
 
@@ -30,5 +30,36 @@ function deletePost(title) {
   req.end();
 }
 
-// Call the function
-deletePost('WoW I created a Post!');
+// Call the functionconst http = require('http');
+
+function deletePost(title) {
+  const postData = JSON.stringify({
+    title: title,
+  });
+
+  const options = {
+    hostname: "172.234.115.144",
+    port: 3000,
+    path: "/posts",
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      "Content-Length": postData.length,
+    },
+  };
+
+  const req = http.request(options, (res) => {
+    res.on("data", (d) => {
+      process.stdout.write(d);
+    });
+  });
+
+  req.on("error", (error) => {
+    console.error(error);
+  });
+
+  req.write(postData);
+  req.end();
+}
+
+module.exports = deletePost;
