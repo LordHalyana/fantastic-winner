@@ -26,6 +26,7 @@ app.get('/posts', (req, res) => {
 // POST /posts creates a new post in the database.
 app.post('/posts', (req, res) => {
   const { title, description } = req.body;
+  console.log(req.body)
   console.log(title + " is the title to be added");
 
   if (!title || !description) {

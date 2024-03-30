@@ -12,7 +12,7 @@ const getPosts = require("./getPosts");
 
 // Define a function to wait for a specified amount of time
 function wait(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 // Define an async function to execute the operations
@@ -33,11 +33,12 @@ async function executeOperations() {
     });
 
     // Call the createPost function and wait for it to complete
-    await createPost(
+    createPost(
       "WoW I created a Post!",
       "This post is created from the dev script createPost!"
-    );
-
+    )
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
     // Wait for 1 second
     await wait(1000);
 
@@ -51,7 +52,7 @@ async function executeOperations() {
 
     console.log("Post deleted successfully.");
   } catch (error) {
-    console.error('Operation failed:', error);
+    console.error("Operation failed:", error);
     process.exit(1); // Exit the script with a failure code
   }
 }
