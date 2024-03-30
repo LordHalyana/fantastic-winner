@@ -1,0 +1,12 @@
+[
+    {
+      "title": "First Post",
+      "description": "This is the first post",
+      "likes": 10
+    },
+    {
+      "title": "Second Post",
+      "description": "This is the second post",
+      "likes": 20
+    }
+  ]
