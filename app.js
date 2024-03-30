@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const posts = require('./routes/posts'); // import the posts router
+const path = require('path');
 
 
 // Set the view engine to ejs
