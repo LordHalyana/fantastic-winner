@@ -1,6 +1,3 @@
-// Import the ping_test function from ping_test.js
-const ping_test = require("./ping_test");
-
 // Import the createPost function from createPost.js
 const createPost = require("./createPost");
 
@@ -16,16 +13,9 @@ function wait(ms) {
 }
 
 // Define an async function to execute the operations
-async function executeOperations() {
+async function executePostTest() {
   try {
-    console.log("Executing operations... Ping test will be performed first.");
-    // Call the ping_test function and wait for it to complete
-    await ping_test();
-
-    // Wait for 1 second
-    await wait(1000);
-
-    console.log("Ping test passed. Getting all posts");
+    console.log("Executing post Test");
 
     await wait(1000);
     getPosts().then((data) => {
@@ -59,5 +49,4 @@ async function executeOperations() {
   }
 }
 
-// Call the executeOperations function
-executeOperations();
+module.exports = executePostTest;

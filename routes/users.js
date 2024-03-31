@@ -15,7 +15,6 @@ router.get('/', (req, res) => {
 
 // Create user
 router.post('/', (req, res) => {
-    console.log("create User"+ req.body);
     fs.readFile('./data/users.json', 'utf8', (err, data) => {
         if (err) {
             res.status(500).send('Server error');
@@ -54,7 +53,7 @@ router.put('/:id', (req, res) => {
 
 // Delete user
 router.delete('/:id', (req, res) => {
-    console.log("delete user" + req.params.id);
+    console.log("delete user " + req.params.id);
     fs.readFile('./data/users.json', 'utf8', (err, data) => {
         if (err) {
             res.status(500).send('Server error');

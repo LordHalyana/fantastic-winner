@@ -1,6 +1,6 @@
 const http = require('http');
 
-function getPosts() {
+function getUsers() {
   return new Promise((resolve, reject) => {
     const options = {
       hostname: '172.234.115.144',
@@ -27,4 +27,4 @@ function getPosts() {
   });
 }
 
-module.exports = getPosts;
+module.exports = getUsers;
