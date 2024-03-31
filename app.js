@@ -24,7 +24,7 @@ app.use('/posts', posts);
 
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('./views/pages/');
   });
 
 
