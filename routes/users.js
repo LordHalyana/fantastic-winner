@@ -59,7 +59,7 @@ router.delete('/:id', (req, res) => {
             res.status(500).send('Server error');
         } else {
             const users = JSON.parse(data);
-            const filteredUsers = users.filter(user => user.id !== req.params.id);
+            const filteredUsers = users.filter(user => user.id !== Number(req.params.id));
             fs.writeFile('./data/users.json', JSON.stringify(filteredUsers), err => {
                 if (err) {
                     res.status(500).send('Server error');
