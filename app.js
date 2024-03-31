@@ -17,6 +17,9 @@ app.set('views', path.join(__dirname, 'views'));
 // Serve static files from node_modules
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 
+// 'public' should be the directory where your static files are located
+app.use(express.static('public')); 
+
 //middleware
 app.use(express.json()); // for parsing application/json
 
