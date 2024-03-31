@@ -23,7 +23,7 @@ app.use(express.json()); // for parsing application/json
 
 //import all routes
 app.use('/posts', posts);
-app-use('/users', users);
+app.use('/users', users);
 
 
 
