@@ -7,6 +7,8 @@ const path = require('path');
 //import routes
 const posts = require('./routes/posts'); // import the posts router
 const users = require('./routes/users'); // import the users router
+const about = require('./routes/about'); // import the about router
+const contact = require('./routes/contact'); // import the contact router
 
 // Set the view engine to ejs
 app.set('view engine', 'ejs');
@@ -26,6 +28,8 @@ app.use(express.json()); // for parsing application/json
 //import all routes
 app.use('/posts', posts);
 app.use('/users', users);
+app.use('/about', about);
+app.use('/contact', contact);
 
 app.get('/', (req, res) => {
     res.render('pages/index');
