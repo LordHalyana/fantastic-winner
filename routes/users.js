@@ -32,6 +32,22 @@ router.post('/', (req, res) => {
     });
 });
 
+router.get('/:id', (req, res) => {
+    fs.readFile('./data/users.json', 'utf8', (err, data) => {
+        if (err) {
+            res.status(500).send('Server error');
+        } else {
+            const users = JSON.parse(data);
+            const user = users.find(user => user.id === Number(req.params.id));
+            if (user) {
+                res.render('pages/user', { user: user });
+            } else {
+                res.status(404).send('User not found');
+            }
+        }
+    });
+});
+
 // Update user
 router.put('/:id', (req, res) => {
     fs.readFile('./data/users.json', 'utf8', (err, data) => {

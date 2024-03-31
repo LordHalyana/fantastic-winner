@@ -5,6 +5,7 @@ const port = 3000;
 const path = require('path');
 
 //import routes
+const index = require('./routes/index'); // import the index router
 const posts = require('./routes/posts'); // import the posts router
 const users = require('./routes/users'); // import the users router
 const about = require('./routes/about'); // import the about router
@@ -26,14 +27,12 @@ app.use(express.static('public'));
 app.use(express.json()); // for parsing application/json
 
 //import all routes
+app.use('/', index);
 app.use('/posts', posts);
 app.use('/users', users);
 app.use('/about', about);
 app.use('/contact', contact);
 
-app.get('/', (req, res) => {
-    res.render('pages/index');
-});
 
 app.get('/test', (req, res) => {
   res.send('How you find this?');
