@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <% include partials/css.ejs %>
+    <%- include('partials/css.ejs') %>
 </head>
 <body>
     <header class="bg-primary text-white text-center py-5 mb-4">
@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <% include partials/js.ejs %>
-    <% include partials/footer.ejs %>
+    <%- include('partials/js.ejs') %>
+    <%- include('partials/footer.ejs') %>
 </body>
 </html>
