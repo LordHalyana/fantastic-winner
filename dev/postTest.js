@@ -52,7 +52,7 @@ async function executeOperations() {
     // Wait for 1 second
     await wait(1000);
 
-    console.log("Post deleted successfully.");
+    console.log("successfully completed all operations.");
   } catch (error) {
     console.error("Operation failed:", error);
     process.exit(1); // Exit the script with a failure code

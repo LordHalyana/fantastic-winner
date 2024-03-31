@@ -1,8 +1,12 @@
+// libraries
 const express = require('express');
 const app = express();
 const port = 3000;
-const posts = require('./routes/posts'); // import the posts router
 const path = require('path');
+
+//import routes
+const posts = require('./routes/posts'); // import the posts router
+const users = require('./routes/users'); // import the users router
 
 
 // Set the view engine to ejs
