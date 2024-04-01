@@ -4,3 +4,7 @@
     color: #5a6268 !important; /* Change the color to whatever you prefer */
     background-color: #f8f9fa !important; /* Change the background color to whatever you prefer */
 }
+
+.navbar .navbar-nav.ml-auto {
+    margin-left: auto;
+  }
